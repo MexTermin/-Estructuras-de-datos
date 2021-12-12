@@ -6,13 +6,14 @@ namespace EstructurasDeDatos
     {
         static void Main(string[] args)
         {
-            Colas.ArrayQueue<dynamic> cola = new();
-            cola.enQueue("yael");
-            cola.enQueue("demil");
+            Colas.PriorityLinkedQueue cola = new();
+            cola.enQueue("yael", 3);
+            cola.enQueue("demil", 2);
             cola.enQueue("medina");
+            cola.enQueue("medina polanco");
             Console.WriteLine(cola.deQueue());
             Console.WriteLine(cola.deQueue());
-            Console.WriteLine(cola.head());
+            Console.WriteLine(cola.tail());
         }
     }
 }

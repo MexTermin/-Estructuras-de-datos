@@ -2,10 +2,10 @@
 
 namespace EstructurasDeDatos.Colas
 {
-    class LinkedQueue : Queue<Utils.SimpleNode>
+    class LinkedQueue : InterfaceQueue
     {
-        private Utils.SimpleNode header { get; set; }
-        private Utils.SimpleNode queue { get; set; }
+        protected Utils.SimpleNode header { get; set; }
+        protected Utils.SimpleNode queue { get; set; }
 
         // O(1)
         public bool isEmpty()
@@ -49,15 +49,15 @@ namespace EstructurasDeDatos.Colas
         }
 
         // Time Complexity: O(1)
-        public Utils.SimpleNode head()
+        public dynamic head()
         {
-            return this.header; // 1
+            return this.header.getValue(); // 1
         }
 
         // Time Complexity: O(1)
-        public Utils.SimpleNode tail()
+        public dynamic tail()
         {
-            return this.queue; // 1
+            return this.queue.getValue(); // 1
         }
     }
 }

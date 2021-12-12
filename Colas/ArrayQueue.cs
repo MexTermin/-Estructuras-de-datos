@@ -3,7 +3,7 @@ using utils = EstructurasDeDatos.Utils.Utils;
 
 namespace EstructurasDeDatos.Colas
 {
-    class ArrayQueue<T> : Queue<T>
+    class ArrayQueue : InterfaceQueue
     {
         private dynamic[] children { get; set; }
         private int lastPosition { get; set; }
@@ -55,7 +55,7 @@ namespace EstructurasDeDatos.Colas
         }
 
         // Time Complexity: O(1)
-        public T head()
+        public dynamic head()
         {
             if (this.isEmpty()) // 1
             {
@@ -65,7 +65,7 @@ namespace EstructurasDeDatos.Colas
         }
 
         // Time Complexity: O(1)
-        public T tail()
+        public dynamic tail()
         {
             if (this.isEmpty()) // 1
             {
