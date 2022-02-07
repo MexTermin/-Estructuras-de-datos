@@ -1,11 +1,11 @@
 ﻿namespace EstructurasDeDatos.Colas
 {
-    interface InterfaceQueue
+    interface IQueue<T>
     {
-        public bool isEmpty();
-        public void enQueue(dynamic value);
-        public dynamic deQueue();
-        public dynamic head();
-        public dynamic tail();
+        public bool IsEmpty();
+        public void EnQueue(T value);
+        public T DeQueue();
+        public T Head();
+        public T Tail();
     }
 }

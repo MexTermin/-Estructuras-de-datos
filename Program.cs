@@ -4,16 +4,20 @@ namespace EstructurasDeDatos
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Colas.PriorityLinkedQueue cola = new();
-            cola.enQueue("yael", 3);
-            cola.enQueue("demil", 2);
-            cola.enQueue("medina");
-            cola.enQueue("medina polanco");
-            Console.WriteLine(cola.deQueue());
-            Console.WriteLine(cola.deQueue());
-            Console.WriteLine(cola.tail());
+            Colas.PriorityLinkedQueue<dynamic> cola = new();
+            cola.EnQueue("yael", 3);
+            cola.EnQueue("demil", 2);
+            cola.EnQueue("medina", 1);
+            cola.EnQueue("medina polanco");
+            Console.WriteLine(cola.DeQueue());
+            Console.WriteLine(cola.DeQueue());
+            Console.WriteLine(cola.DeQueue());
+            Console.WriteLine(cola.Tail());
+            Console.ReadKey();
         }
     }
 }
+
+// yael -> medina -> demil -> medina polanco

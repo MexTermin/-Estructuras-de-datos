@@ -6,7 +6,7 @@ namespace EstructurasDeDatos.Utils
         public class Arrays<T>
         {
             // Time Complexity: O(n)
-            public T[] resizeArray(dynamic[] oldArray, int size, int endFill)
+            public T[] ResizeArray(T[] oldArray, int size, int endFill)
             {
                 T[] newArray = new T[size]; // 1
 

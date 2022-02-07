@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace EstructurasDeDatos.Listas
+﻿namespace EstructurasDeDatos.Listas
 {
-    interface ListInterface
+    interface IList<T>
     {
-        public void add(dynamic value);
-        public void delete(int index);
-        public void insert(int index, dynamic value);
-        public dynamic get(int index);
-        public int lenght();
+        public void Add(T value);
+        public void Delete(int index);
+        public void Insert(int index, T value);
+        public T Get(int index);
+        public int Length();
     }
 }

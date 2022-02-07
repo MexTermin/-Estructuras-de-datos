@@ -1,54 +1,42 @@
 ﻿namespace EstructurasDeDatos.Colas
 {
-    class PriorityLinkedQueue : LinkedQueue
+    class PriorityLinkedQueue<T> : LinkedQueue<T>
     {
-
         // Time Complexity: O(n)
-        public void enQueue(dynamic value, int priority = 0)
+        public void EnQueue(dynamic value, int priority = 0)
         {
-            Utils.SimpleNode node = new(); // 1
-            node.setValue(value); // 1
-            node.setPiority(priority); // 1
+            Utils.SimpleLinkedNode<T> node = new(); // 1
+            node.Value = value; // 1
 
-            if (this.isEmpty()) // 1
+            if (this.IsEmpty()) // 1
             {
-                this.header = node; // 1
-                this.queue = node; // 1
+                this.Header = node; // 1
+                this.Queue = node; // 1
             }
             else
             {
-                Utils.SimpleNode nodeActual; // 1
-                if (this.queue.getPriority() >= priority) // 1
+                if (priority == 0) // 1
                 {
-                    this.queue.setNext(node); // 1
-                    this.queue = node; // 1
+                    this.Queue.Next = node; // 1
+                    this.Queue = node; // 1
                 }
                 else
                 {
-                    nodeActual = this.header; // 1
-                    while (nodeActual.getPriority() > priority) // n
+                    Utils.SimpleLinkedNode<T> temp = this.Header; // 1
+                    int index = 1; // 1
+                    while (temp.Next != null && priority > index) // n
                     {
-                        if (nodeActual.getNext() != null) // 1
-                        {
-                            nodeActual = nodeActual.getNext(); // 1
-                            continue; // 1
-                        }
-                        break; // 1
+                        temp = temp.Next; // 1
+                        index++; // 1
                     }
 
-                    // Se ejecuta cuando el elemento a insertar tiene mayor prioridad que el que va a la cabeza.
-                    if (nodeActual.getPriority() < priority) // 1
+                    if (temp.Next == null) // 1
                     {
-                        node.setNext(nodeActual); // 1
-                        this.header = node; // 1
+                        this.Queue = node; // 1
                     }
-                    else
-                    {
-                        node.setNext(nodeActual.getNext()); // 1
-                        nodeActual.setNext(node); // 1
-                    }
+                    node.Next = temp.Next; // 1
+                    temp.Next = node; // 1
                 }
-
             }
         }
     }

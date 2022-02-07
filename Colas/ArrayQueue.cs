@@ -3,75 +3,75 @@ using utils = EstructurasDeDatos.Utils.Utils;
 
 namespace EstructurasDeDatos.Colas
 {
-    class ArrayQueue : InterfaceQueue
+    class ArrayQueue<T> : IQueue<T>
     {
-        private dynamic[] children { get; set; }
-        private int lastPosition { get; set; }
-        private utils.Arrays<dynamic> uArrays = new();
+        private T[] Children { get; set; }
+        private int LastPosition { get; set; }
+        private readonly utils.Arrays<T> uArrays;
 
         public ArrayQueue()
         {
-            this.children = new dynamic[10];
+            this.Children = new T[10];
         }
 
         // Time Complexity: O(1)
-        public bool isEmpty()
+        public bool IsEmpty()
         {
-            return this.children.Length == 0; // 1
+            return this.Children.Length == 0; // 1
         }
 
         // Time Complexity: O(n)
-        public void enQueue(dynamic value)
+        public void EnQueue(T value)
         {
-            if (this.lastPosition == this.children.Length) // 1
+            if (this.LastPosition == this.Children.Length) // 1
             {
-                this.children = uArrays.resizeArray(this.children, this.children.Length * 2, this.lastPosition - 1); // n
+                this.Children = uArrays.ResizeArray(this.Children, this.Children.Length * 2, this.LastPosition - 1); // n
             }
-            this.children[this.lastPosition] = value; // 1
-            this.lastPosition++;                      // 1
+            this.Children[this.LastPosition] = value; // 1
+            this.LastPosition++;                      // 1
         }
 
         // Time Complexity: O(n)
-        public dynamic deQueue()
+        public T DeQueue()
         {
-            if (this.isEmpty()) // 1
+            if (this.IsEmpty()) // 1
             {
                 throw new Exception("La cola está vacía"); // 1
             }
-            var result = this.children[0];                           // 1
+            var result = this.Children[0];                           // 1
 
-            for (var index = 0; index < this.lastPosition - 1; index++)// n
+            for (var index = 0; index < this.LastPosition - 1; index++)// n
             {
-                this.children[index] = this.children[index + 1]; // 1
+                this.Children[index] = this.Children[index + 1]; // 1
             }
-            if (this.children.Length / 2 > this.lastPosition && this.lastPosition > 10)// 1
+            if (this.Children.Length / 2 > this.LastPosition && this.LastPosition > 10)// 1
             {
-                this.children = uArrays.resizeArray(this.children, this.lastPosition * 2, this.lastPosition - 1); // n
+                this.Children = uArrays.ResizeArray(this.Children, this.LastPosition * 2, this.LastPosition - 1); // n
             }
 
-            this.children[this.lastPosition - 1] = null; // 1
-            this.lastPosition--;                    // 1
+            this.Children[this.LastPosition - 1] = default; // 1
+            this.LastPosition--;                    // 1
             return result;                              // 1
         }
 
         // Time Complexity: O(1)
-        public dynamic head()
+        public T Head()
         {
-            if (this.isEmpty()) // 1
+            if (this.IsEmpty()) // 1
             {
                 throw new Exception("La cola está vacía"); // 1
             }
-            return this.children[0]; // 1
+            return this.Children[0]; // 1
         }
 
         // Time Complexity: O(1)
-        public dynamic tail()
+        public T Tail()
         {
-            if (this.isEmpty()) // 1
+            if (this.IsEmpty()) // 1
             {
                 throw new Exception("La cola está vacía"); // 1
             }
-            return this.children[this.lastPosition - 1]; // 1
+            return this.Children[this.LastPosition - 1]; // 1
         }
     }
 }
