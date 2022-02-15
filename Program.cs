@@ -7,17 +7,21 @@ namespace EstructurasDeDatos
         static void Main()
         {
             Colas.PriorityLinkedQueue<dynamic> cola = new();
-            cola.EnQueue("yael", 3);
+            cola.EnQueue("yael", 5);
             cola.EnQueue("demil", 2);
             cola.EnQueue("medina", 1);
-            cola.EnQueue("medina polanco");
+            cola.EnQueue("medina polanco", 2);
+            cola.EnQueue("medina polanco 2", 4);
+            cola.EnQueue("medina polanco 3", 1);
+            Console.WriteLine(cola.DeQueue());
+            Console.WriteLine(cola.DeQueue());
             Console.WriteLine(cola.DeQueue());
             Console.WriteLine(cola.DeQueue());
             Console.WriteLine(cola.DeQueue());
             Console.WriteLine(cola.Tail());
-            Console.ReadKey();
+            // Console.ReadKey();
         }
     }
 }
 
-// yael -> medina -> demil -> medina polanco
+// medina -> demil -> medina polanco -> yael
