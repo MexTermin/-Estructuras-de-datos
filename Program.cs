@@ -6,14 +6,13 @@ namespace EstructurasDeDatos
     {
         static void Main()
         {
-            Listas.LinkedList<string>  lista= new();
-            lista.Add("a");
-            lista.Add("b");
-            lista.Add("c");
-            lista.Add("d");
-            lista.Delete(0);
-            lista.Insert(0,"1");
-            Console.WriteLine(lista.Get(0));
+            Pilas.ArrayStack<string>  lista = new();
+            lista.Push("a");
+            lista.Push("b");
+            lista.Push("c");
+            lista.Push("d");
+            lista.Pop();
+            Console.WriteLine(lista.Top());
             // Console.ReadKey();
         }
     }

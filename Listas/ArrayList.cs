@@ -6,7 +6,7 @@ namespace EstructurasDeDatos.Listas
     class ArrayList<T> : IList<T>
     {
         private int Len { get; set; }
-        private T[] Children { get; set; }
+        private T[] Children { get; set; } = new T[10];
         private readonly utils.Arrays<T> uArrays ;
 
         // Time Complexity: O(n)
