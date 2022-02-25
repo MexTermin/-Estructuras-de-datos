@@ -1,4 +1,7 @@
 ﻿using System;
+using EstructurasDeDatos.Colas;
+using EstructurasDeDatos.Pilas;
+using EstructurasDeDatos.Listas;
 
 namespace EstructurasDeDatos
 {
@@ -6,16 +9,7 @@ namespace EstructurasDeDatos
     {
         static void Main()
         {
-            Pilas.ArrayStack<string>  lista = new();
-            lista.Push("a");
-            lista.Push("b");
-            lista.Push("c");
-            lista.Push("d");
-            lista.Pop();
-            Console.WriteLine(lista.Top());
-            // Console.ReadKey();
+            Console.WriteLine("Hello there");
         }
     }
 }
-
-// medina -> demil -> medina polanco -> yael
