@@ -6,19 +6,14 @@ namespace EstructurasDeDatos
     {
         static void Main()
         {
-            Colas.PriorityLinkedQueue<dynamic> cola = new();
-            cola.EnQueue("yael", 5);
-            cola.EnQueue("demil", 2);
-            cola.EnQueue("medina", 1);
-            cola.EnQueue("medina polanco", 2);
-            cola.EnQueue("medina polanco 2", 4);
-            cola.EnQueue("medina polanco 3", 1);
-            Console.WriteLine(cola.DeQueue());
-            Console.WriteLine(cola.DeQueue());
-            Console.WriteLine(cola.DeQueue());
-            Console.WriteLine(cola.DeQueue());
-            Console.WriteLine(cola.DeQueue());
-            Console.WriteLine(cola.Tail());
+            Listas.LinkedList<string>  lista= new();
+            lista.Add("a");
+            lista.Add("b");
+            lista.Add("c");
+            lista.Add("d");
+            lista.Delete(0);
+            lista.Insert(0,"1");
+            Console.WriteLine(lista.Get(0));
             // Console.ReadKey();
         }
     }
