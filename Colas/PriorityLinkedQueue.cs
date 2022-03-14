@@ -1,5 +1,4 @@
-﻿using System;
-using EstructurasDeDatos.Utils;
+﻿using EstructurasDeDatos.Utils;
 namespace EstructurasDeDatos.Colas
 {
     class PriorityLinkedQueue<T> : LinkedQueue<T>
@@ -7,9 +6,7 @@ namespace EstructurasDeDatos.Colas
         // Time Complexity: O(n)
         public void EnQueue(dynamic value, int priority = 0)
         {
-            PrioritySimpleNode<T> node = new(); // 1
-            node.Value = value; // 1
-            node.Priority = priority;
+            PrioritySimpleNode<T> node = new(value, priority); // 1
 
             if (this.IsEmpty()) // 1
             {

@@ -16,8 +16,7 @@ namespace EstructurasDeDatos.Colas
         // Time Complexity: O(1)
         public void EnQueue(T value)
         {
-            Utils.SimpleLinkedNode<T> node = new(); // 1
-            node.Value = value; // 1
+            Utils.SimpleLinkedNode<T> node = new(value); // 1
 
             if (this.Header == null) // 1
             {
@@ -34,10 +33,7 @@ namespace EstructurasDeDatos.Colas
         // Time Complexity: O(1)
         public T DeQueue()
         {
-            if (this.IsEmpty()) // 1
-            {
-                throw new Exception("La cola está vacía"); // 1
-            }
+            if (this.IsEmpty()) throw new Exception("La cola está vacía");
             var result = this.Header.Value; // 1
             this.Header = this.Header.Next; // 1
 

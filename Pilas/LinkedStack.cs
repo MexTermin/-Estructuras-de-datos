@@ -16,8 +16,7 @@ namespace EstructurasDeDatos.Pilas
         // O(1)
         public void Push(T value)
         {
-            SimpleLinkedNode<T> node = new (); // 1
-            node.Value = value; // 1
+            SimpleLinkedNode<T> node = new (value); // 1
             if (!this.IsEmpty()) // 1
             {
                 node.Next = this.Head; // 1

@@ -10,37 +10,27 @@ namespace EstructurasDeDatos.Listas
         private int Len { get; set; }
 
         // O(1)
-        private void OutOfRange(int index)
-        {
-            if (index >= this.Len || index < 0) // 1
-            {
-                throw new Exception("Índice fuera de rango"); // 
-            }
-        }
-
-        // O(1)
         public int Length()
         {
-            return this.Len;
+            return this.Len; // 1
         }
 
         // O(n)
         public T Get(int index)
         {
-            this.OutOfRange(index); // 1
-
+            if (index >= this.Len || index < 0) throw new Exception("Índice fuera de rango"); // 1
             if (index == 0) // 1
             {
                 return this.Head.Value; // 1
             }
-            else if (index == this.Len - 1)
+            else if (index == this.Len - 1) // 1
             {
                 return this.Tail.Value; // 1
             }
             else
             {
                 DoubleLinkedNode<T> node = this.Head; // 1
-                for (int i = 0; i < index; i++) // 1
+                for (int i = 0; i < index; i++) // n
                 {
                     node = (DoubleLinkedNode<T>)node.Next; // 1
                 }
@@ -51,7 +41,7 @@ namespace EstructurasDeDatos.Listas
         // O(n)
         public void Delete(int index)
         {
-            this.OutOfRange(index); // 1
+            if (index >= this.Len || index < 0) throw new Exception("Índice fuera de rango"); // 1
 
             if (index == 0) // 1
             {
@@ -66,7 +56,7 @@ namespace EstructurasDeDatos.Listas
             else
             {
                 DoubleLinkedNode<T> node = this.Head; // 1
-                for (int i = 0; i < index; i++) // 1
+                for (int i = 0; i < index; i++) // n
                 {
                     node = (DoubleLinkedNode<T>)node.Next; // 1
                 }
@@ -79,10 +69,9 @@ namespace EstructurasDeDatos.Listas
 
         public void Insert(int index, T value)
         {
-            this.OutOfRange(index); // 1
+            if (index >= this.Len || index < 0) throw new Exception("Índice fuera de rango"); // 1
 
-            DoubleLinkedNode<T> newNode = new(); // 1
-            newNode.Value = value; // 1
+            DoubleLinkedNode<T> newNode = new(value); // 1
             if (index == 0) // 1
             {
                 newNode.Next = this.Head; // 1
@@ -98,7 +87,7 @@ namespace EstructurasDeDatos.Listas
             else
             {
                 DoubleLinkedNode<T> node = this.Head;// 1
-                for (int i = 0; i < index; i++) // 1
+                for (int i = 0; i < index; i++) // n
                 {
                     node = (DoubleLinkedNode<T>)node.Next; // 1
                 }
@@ -113,8 +102,7 @@ namespace EstructurasDeDatos.Listas
 
         public void Add(T value)
         {
-            DoubleLinkedNode<T> newNode = new(); // 1
-            newNode.Value = value; // 1
+            DoubleLinkedNode<T> newNode = new(value); // 1
 
             if (this.Head == null || this.Tail == null) // 1
             {
