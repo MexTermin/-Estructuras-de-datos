@@ -1,12 +1,12 @@
 ﻿namespace EstructurasDeDatos.Arboles
 {
-    abstract class BaseTree<T>
+    abstract class Tree<T>
     {
-        T root { get; set; }
+        public T Root { get; set; }
 
-        public BaseTree(T root)
+        public Tree(T root)
         {
-            this.root = root;
+            this.Root = root;
         }
 
         public abstract T IsLeaf();
