@@ -1,4 +1,5 @@
-﻿namespace EstructurasDeDatos.Arboles
+﻿using System;
+namespace EstructurasDeDatos.Arboles
 {
     abstract class Tree<T>
     {
@@ -9,8 +10,8 @@
             this.Root = root;
         }
 
-        public abstract T IsLeaf();
-        public abstract T DeGree();
-        public abstract T Height();
+        public abstract bool IsLeaf();
+        public abstract int DeGree();
+        public abstract int Height();
     }
 }
